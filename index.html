@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Smart Login System</title>
+</head>
+
+<body>
+  <nav class="d-none" id="navbar">
+    <div class="container w-75 d-flex justify-content-between align-items-center">
+      <h2 class="fs-1 text-uppercase text-white">smart login</h2>
+      <button onclick="logout()" class="btn btn-outline-warning text-capitalize text-light"> logout</button>
+    </div>
+  </nav>
+  <div class="container mx-auto py-5 d-flex justify-content-center align-items-center vh-100">
+    <div class="login-form p-4 w-100" id="loginForm">
+      <h1 class="text-capitalize text-center mb-3">smart login system</h1>
+      <form action="#" id="form">
+      <div class="form-floating mb-3 text-white d-none" id="inputName">
+        <input type="text" oninput="validateUserName() " id="userName" class="form-control text-white" id="nameRegistraion" placeholder="name">
+        <div class="alert alert-danger mt-2 py-1 d-none" id="alertName">
+          <small>User name should contain at least 4 caracters</small>
+        </div>
+        <label for="nameRegistraion" class="opacity-75">Enter your name</label>
+      </div>
+      <div class="form-floating mb-3 text-white">
+        <input type="email" oninput="validateEmail()" class="form-control text-white" id="userEmail" placeholder="name@example.com">
+        <div class="alert alert-danger mt-2 py-1 d-none" id="alertEmail">
+          <small>example@gmail.com</small>
+        </div>
+        <label for="userEmail" class="opacity-75">Enter your email</label>
+      </div>
+      <div class="form-floating text-white mb-4">
+        <input type="password" oninput="validatePassword()" class="form-control text-white" id="userPassword" placeholder="Password">
+        <div class="alert alert-danger mt-2 py-1 d-none" id="alertPassword">
+          <small>
+            User password should contain:
+            <ul>
+              <li>at least one capital letter</li>
+              <li>at least one special caracter </li>
+              <li>at least 8 caracters</li>
+            </ul>
+          </small>
+        </div>
+        <label for="userPassword" class="opacity-75">Enter your password</label>
+      </div>
+      <p id="textAlert" class="text-danger text-center fw-semibold fs-5 d-none">All inputs are required</p>
+      <p id="alertWrongInfo" class="text-danger text-center fw-semibold fs-5 d-none">incorrect email or password</p>
+      <p id="mailExists" class="text-danger text-center fw-semibold fs-5 d-none">email already exists</p>
+      <p id="textSuccess" class="text-success text-center fw-semibold fs-5 d-none">Success</p>
+      <button id="btnLogin" onclick="logIn()" class="btn btn-outline-info text-capitalize w-100 text-center mb-3">
+        login</button>
+      <button id="btnRegistration" onclick="addNewUser() "
+        class="btn btn-outline-info text-capitalize w-100 text-center mb-3 d-none"> sign up</button>
+      <span id="messageRegistration" class="d-block text-center text-white mb-3">
+        Don't have an account? <a onclick="showRegistrationForm()" class="text-decoration-none text-white">Sign Up</a>
+      </span>
+      <span id="messageLogin" class="d-block text-center text-white mb-3 d-none">
+        You have an account? <a onclick="showLoginForm()" class="text-decoration-none text-white text-capitalize">sign
+          in</a>
+      </span>
+      </form>
+    </div>
+    <div class="welcome-user p-5 d-none w-100" id="welcomeUser">
+      <h2 class="fs-1 text-center text-capitalize" id="welcomeMessage"></h2>
+    </div>
+  </div>
+  <script src="./JS/script.js"></script>
+  <script src="./JS/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
